@@ -286,103 +286,36 @@ oc new-app -e MYSQL_USER=sales -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=sale
 
    ![](https://access.redhat.com/webassets/avalon/d/Reference_Architectures-2017-Build_and_Deployment_of_Java_Applications_on_OpenShift_Container_Platform_3-en-US/images/2e8dc106ba494f620c21ff2f7ed22efa/product_deploy.png)
 
-2. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=product-service`
+   1-1. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=product-service`
 
-3. `oc start-build product-service --from-dir=product`
-
-
+   1-2. `oc start-build product-service --from-dir=product`
 
 
 
 
 
-1. Sales service
+
+
+2. Sales service
 
    ![](C:\Users\gyulee\Dropbox\Markup\images\sales_deploy.png)
 
-2. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=sales-service`
+   2-1. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=sales-service`
 
-3. `oc start-build sales-service --from-dir=sales`
-
-
+   2-2. `oc start-build sales-service --from-dir=sales`
 
 
 
 
 
-1. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=presentation`
+3. Presentation service
 
-2. `oc start-build presentation --from-file=ROOT.war`
+   3-1. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=presentation`
 
-3. `oc expose service presentation`
+   3-2. `oc start-build presentation --from-file=ROOT.war`
 
+   3-3. `oc expose service presentation`
 
-
-```shell
-
-C:\workspace\MSA-EAP7-OSE-master\Billing\target>mkdir /tmp/nocontent
-
-C:\workspace\MSA-EAP7-OSE-master\Billing\target>oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=billing-service
-
---> Found image c326e30 (8 months old) in image stream "openshift/jboss-eap71-openshift" under tag "1.1" for "jboss-eap70-openshift:1.4"
-
-
-
-    JBoss EAP 7.1
-
-    -------------
-
-    Platform for building and running JavaEE applications on JBoss EAP 7.1
-
-
-
-    Tags: builder, javaee, eap, eap7
-
-
-
-    * A source build using binary input will be created
-
-      * The resulting image will be pushed to image stream "billing-service:latest"
-
-      * A binary build was created, use 'start-build --from-dir' to trigger a new build
-
-    * This image will be deployed in deployment config "billing-service"
-
-    * Ports 8080/tcp, 8443/tcp, 8778/tcp will be load balanced by service "billing-service"
-
-      * Other containers can access this service through the hostname "billing-service"
-
-
-
---> Creating resources ...
-
-    imagestream "billing-service" created
-
-    buildconfig "billing-service" created
-
-    deploymentconfig "billing-service" created
-
-    service "billing-service" created
-
---> Success
-
-    Build scheduled, use 'oc logs -f bc/billing-service' to track its progress.
-
-    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-
-     'oc expose svc/billing-service'
-
-    Run 'oc status' to view your app.
-
-    
-
-C:\workspace\MSA-EAP7-OSE-master\Billing\target>oc start-build billing-service --from-file=billing.war
-
-Uploading file "billing.war" as binary input for the build ...
-
-build "billing-service-2" started
-
-```
 
 
 
