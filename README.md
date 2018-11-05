@@ -205,13 +205,9 @@ oc rollout status dc/fruits
 ```shell
 
 insert into fruit (name) values ('Cherry');
-
 insert into fruit (name) values ('Apple');
-
 insert into fruit (name) values ('Banana');
-
 # add new sql
-
 insert into fruit (name) values ('Mango');
 
 ```
@@ -239,7 +235,7 @@ mvn package fabric8:deploy -Popenshift -DskipTests
 
 
 Source Link : https://github.com/RHsyseng/MSA-EAP7-OSE
-Blog Link : https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/build_and_deployment_of_java_applications_on_openshift_container_platform_3/index
+
 
 
 Maven으로 빌드를 수행하여 war 파일을 생성한다.
@@ -250,9 +246,9 @@ Maven으로 빌드를 수행하여 war 파일을 생성한다.
 
 
 
-1. `mkdir C:\tmp\nocontent`
+1. `mkdir /tmp/nocontent`
 
-2. `oc new-app jboss-eap71-openshift:1.1~c:\\tmp\\nocontent --name=billing-service`
+2. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=billing-service`
 
 3. `oc start-build billing-service --from-file=billing.war`
 
@@ -290,9 +286,9 @@ oc new-app -e MYSQL_USER=sales -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=sale
 
    ![](https://access.redhat.com/webassets/avalon/d/Reference_Architectures-2017-Build_and_Deployment_of_Java_Applications_on_OpenShift_Container_Platform_3-en-US/images/2e8dc106ba494f620c21ff2f7ed22efa/product_deploy.png)
 
-2. `oc new-app jboss-eap71-openshift:1.1~c:\\tmp\\nocontent --name=product-service`
+2. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=product-service`
 
-3. ``oc start-build product-service --from-dir=deploy`
+3. `oc start-build product-service --from-dir=product`
 
 
 
@@ -304,17 +300,17 @@ oc new-app -e MYSQL_USER=sales -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=sale
 
    ![](C:\Users\gyulee\Dropbox\Markup\images\sales_deploy.png)
 
-2. `oc new-app jboss-eap71-openshift:1.1~c:\\tmp\\nocontent --name=sales-service`
+2. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=sales-service`
 
-3. ``oc start-build product-service --from-dir=deploy`
-
-
+3. `oc start-build sales-service --from-dir=sales`
 
 
 
 
 
-1. `oc new-app jboss-eap71-openshift:1.1~c:\\tmp\\nocontent --name=presentation`
+
+
+1. `oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=presentation`
 
 2. `oc start-build presentation --from-file=ROOT.war`
 
@@ -324,11 +320,11 @@ oc new-app -e MYSQL_USER=sales -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=sale
 
 ```shell
 
-C:\workspace\MSA-EAP7-OSE-master\Billing\target>mkdir C:\tmp\nocontent
+C:\workspace\MSA-EAP7-OSE-master\Billing\target>mkdir /tmp/nocontent
 
-C:\workspace\MSA-EAP7-OSE-master\Billing\target>oc new-app jboss-eap71-openshift:1.1~c:\\tmp\\nocontent --name=billing-service
+C:\workspace\MSA-EAP7-OSE-master\Billing\target>oc new-app jboss-eap70-openshift:1.4~/tmp/nocontent --name=billing-service
 
---> Found image c326e30 (8 months old) in image stream "openshift/jboss-eap71-openshift" under tag "1.1" for "jboss-eap71-openshift:1.1"
+--> Found image c326e30 (8 months old) in image stream "openshift/jboss-eap71-openshift" under tag "1.1" for "jboss-eap70-openshift:1.4"
 
 
 
