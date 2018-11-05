@@ -167,17 +167,11 @@ oc new-project redhatforumkorea --display-name="Demo - Spring Boot App"
 
 
 ```shell
-
 oc new-app -e POSTGRESQL_USER=luke \
-
 -e POSTGRESQL_PASSWORD=secret \
-
 -e POSTGRESQL_DATABASE=my_data \
-
 openshift/postgresql-92-centos7 \
-
 --name=my-database
-
 ```
 
 
