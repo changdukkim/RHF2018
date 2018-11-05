@@ -239,7 +239,7 @@ mvn package fabric8:deploy -Popenshift -DskipTests
 
 
 Source Link : https://github.com/RHsyseng/MSA-EAP7-OSE
-
+Blog Link : https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/build_and_deployment_of_java_applications_on_openshift_container_platform_3/index
 
 
 Maven으로 빌드를 수행하여 war 파일을 생성한다.
